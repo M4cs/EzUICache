@@ -6,3 +6,4 @@ Description: A UICache button for Control Center with Silo.
 Author: M4cs and Chilaxan
 Section: Control Center (Modules)
 Maintainer: m4cs.yourepo.com
+Depends: firmware (>= 11.0), com.ioscreatix.silo

@@ -1,13 +1,12 @@
-#import "EzUICacheModule"
+#import "EzUICacheModule.h"
 #import <spawn.h>
-
-
+#import <sys/wait.h>
 
 @interface UIImage ()
 + (UIImage *)imageNamed:(NSString *)name inBundle:(NSBundle *)bundle;
 @end
 
-@implementation EzUICache
+@implementation EzUICacheModule
 - (UIImage *)iconGlyph {
 	return [UIImage imageNamed:@"Icon" inBundle:[NSBundle bundleForClass:[self class]]];
 }
@@ -23,14 +22,16 @@
 - (void)setSelected:(BOOL)selected {
 	self.EzUICache = selected;
 	[super refreshState];
-    [self uicache];
+  [self uicache];
 }
 
 - (void)uicache {
     pid_t pid;
     int status;
-    const char* args[] = {"uicache.sh", NULL, NULL, NULL};
-    posix_spawn(&pid, "/Library/ControlCenter/Bundles/EzUICache/uicache", NULL, NULL, (char* const*)args, NULL);
+    const char* args[] = {"uicache", NULL, NULL, NULL};
+    posix_spawn(&pid, "/usr/bin/uicache", NULL, NULL, (char* const*)args, NULL);
     waitpid(pid, &status, WEXITED);
+		CFRunLoopRunInMode(kCFRunLoopDefaultMode, 20.0, false);
+		self.EzUICache = FALSE;
 }
 @end

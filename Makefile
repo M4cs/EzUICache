@@ -1,6 +1,6 @@
 include $(THEOS)/makefiles/common.mk
 
-BUNDLE_NAME = EzRespring
+BUNDLE_NAME = EzUICache
 $(BUNDLE_NAME)_BUNDLE_EXTENSION = bundle
 $(BUNDLE_NAME)_CFLAGS +=  -fobjc-arc -I$(THEOS_PROJECT_DIR)/headers
 $(BUNDLE_NAME)_FILES = $(wildcard *.m)

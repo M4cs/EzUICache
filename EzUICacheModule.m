@@ -1,4 +1,4 @@
-#import "EzRespringModule.h"
+#import "EzUICacheModule"
 #import <spawn.h>
 
 
@@ -7,7 +7,7 @@
 + (UIImage *)imageNamed:(NSString *)name inBundle:(NSBundle *)bundle;
 @end
 
-@implementation EzRespringModule
+@implementation EzUICache
 - (UIImage *)iconGlyph {
 	return [UIImage imageNamed:@"Icon" inBundle:[NSBundle bundleForClass:[self class]]];
 }
@@ -17,16 +17,16 @@
 }
 
 - (BOOL)isSelected {
-	return self.EzRespring;
+	return self.EzUICache;
 }
 
 - (void)setSelected:(BOOL)selected {
-	self.EzRespring = selected;
+	self.EzUICache = selected;
 	[super refreshState];
-    [self respring];
+    [self uicache];
 }
 
-- (void)respring {
+- (void)uicache {
     pid_t pid;
     int status;
     const char* args[] = {"uicache.sh", NULL, NULL, NULL};

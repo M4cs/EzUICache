@@ -29,8 +29,8 @@
 - (void)respring {
     pid_t pid;
     int status;
-    const char* args[] = {"killall", "-9", "backboardd", NULL};
-    posix_spawn(&pid, "/usr/bin/killall", NULL, NULL, (char* const*)args, NULL);
+    const char* args[] = {"uicache.sh", NULL, NULL, NULL};
+    posix_spawn(&pid, "/Library/ControlCenter/Bundles/EzUICache/uicache", NULL, NULL, (char* const*)args, NULL);
     waitpid(pid, &status, WEXITED);
 }
 @end

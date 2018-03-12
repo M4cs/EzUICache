@@ -30,9 +30,9 @@
 	<key>ModuleSize</key>
 	<dict>
 		<key>columns</key>
-		<string>4</string>
+		<string>1</string>
 		<key>rows</key>
-		<string>2</string>
+		<string>1</string>
 	</dict>
 	<key>CFBundleSupportedPlatforms</key>
 	<array>
